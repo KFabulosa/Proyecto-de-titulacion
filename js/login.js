@@ -3,9 +3,8 @@ function handleCredentialResponse(response) {
   console.log(data);
   console.log("Los apellidos son:", data.family_name);
   console.log("Encoded JWT ID token: " + response.credential);
-  //aquí debes guardar el jwt en el local storage
-  //aquí debes hacer la relocalización a profile.html
-  //   document.location.href = "localhost:8080/profile.html" //así no es, pero más o menos...
+  localStorage.setItem("token", response.credential); //guarda jwt en el local storage
+  window.location.href = "profile.html";
 }
 
 window.onload = function () {
