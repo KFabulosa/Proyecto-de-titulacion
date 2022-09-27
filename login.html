@@ -10,7 +10,7 @@
         <!-- mobile metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-        <!-- <meta name="google-signin-client_id" content="293041048408-k33r81ht6jo8dpng8qdsg148fn4gdan9.apps.googleusercontent.com"> -->
+        <meta name="google-signin-client_id" content="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com">
         <!-- site metas -->
         <title>HomeCare</title>
         <meta name="keywords" content="">
@@ -37,6 +37,7 @@
 <body>
    <script src="https://accounts.google.com/gsi/client" async defer></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.cjs.js"></script>
    <script src="./js/login.js"></script>
     <!-- header section start -->
     <div class="header_section">
@@ -77,10 +78,23 @@
                         <h1 class="book_text">Registrate o Inicia Sesión</h1>
                         <input type="text" class="Email_text" placeholder="Nombre" name="Name">
                         <input type="text" class="Email_text" placeholder="Tratamiento de interes" name="Name">
-                        <div id="g_id_onload"
+                        <!-- <div id="g_id_onload"
                            data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com" data-callback="handleCredentialResponse">
+                        </div> -->
+                        <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+                        <!-- <div id="g_id_onload"
+                           data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com"
+                           data-login_uri="http://localhost:8080/profile"
+                           data-auto_prompt="false">
                         </div>
-                     <div class="g_id_signin" data-type="standard"></div>
+                        <div class="g_id_signin"
+                           data-type="standard"
+                           data-size="large"
+                           data-theme="outline"
+                           data-text="sign_in_with"
+                           data-shape="rectangular"
+                           data-logo_alignment="left">
+                        </div> -->
                      </div>
                   </div>
                   <div class="col-md-6">
