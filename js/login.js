@@ -7,18 +7,18 @@ function handleCredentialResponse(response) {
   window.location.href = "profile.html";
 }
 
-window.onload = function () {
-  google.accounts.id.initialize({
-    client_id:
-      "293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com",
-    callback: handleCredentialResponse,
-  });
-  google.accounts.id.renderButton(
-    document.getElementById("buttonDiv"),
-    { theme: "outline", size: "large" } // customization attributes
-  );
-  google.accounts.id.prompt(); // also display the One Tap dialog
-};
+// window.onload = function () {
+//   google.accounts.id.initialize({
+//     client_id:
+//       "293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com",
+//     callback: handleCredentialResponse,
+//   });
+//   google.accounts.id.renderButton(
+//     document.getElementById("buttonDiv"),
+//     { theme: "outline", size: "large" } // customization attributes
+//   );
+//   google.accounts.id.prompt(); // also display the One Tap dialog
+// };
 
 
 function signOut() { // a lo mejor se va a cambiar esto
