@@ -1,12 +1,8 @@
 const meetingCtrl = {}
+const { createNewMeetingWithUser } = require("../services/Meeting.service");
 
 meetingCtrl.createNewMeeting = (req, res) => {
-  res.send("new meeting");
-  // obtener del req la hora y la fecha
-  // guardar en bdd en el schema de meeting
-  // mandar correo al usuario
-
-  //codigo para enviar un correo
+  createNewMeetingWithUser(req.body);
 }
 
 module.exports = meetingCtrl;
