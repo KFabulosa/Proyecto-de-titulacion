@@ -20,6 +20,17 @@ async function createNewMeetingWithUser(data) {
   }
 }
 
+async function getAllMeetings2() {
+  try {
+    const allMeetings = await Meeting.find({});
+    console.log(allMeetings);
+    return allMeetings;
+  } catch (err) {
+    console.log(err);
+    console.log("Error getting all meetings");
+  }
+}
+
 function notifyNewMeetingToUser(data) {
   sendMail(data.email, "test", {
     userName: data.completeName,
@@ -31,4 +42,4 @@ function notifyNewMeetingToUser(data) {
   });
 }
 
-module.exports = { createNewMeetingWithUser, notifyNewMeetingToUser };
+module.exports = { createNewMeetingWithUser, notifyNewMeetingToUser, getAllMeetings2 };
