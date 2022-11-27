@@ -6,7 +6,7 @@ class PaymentService {
 
     const body = {
       // payer_email: "test_user_91810408@testuser.com",
-      payer_email: "antonio15198able@gmail.com",
+      payer_email: "test_user_91810408@testuser.com",
       items: [
         {
           title: "Consulta",
