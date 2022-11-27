@@ -7,9 +7,8 @@ class PaymentController {
     try {
       const payment = await this.subscriptionService.createPayment();
 
-      // return res.json(payment);
+      return res.json(payment);
       // Ejemplo:
-      redirect(res.json(payment).init_point);
       
     } catch (error) {
       console.log(error);

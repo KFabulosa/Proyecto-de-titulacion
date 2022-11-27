@@ -9,18 +9,18 @@ class PaymentService {
       payer_email: "antonio15198able@gmail.com",
       items: [
         {
-          title: "Dummy Title",
-          description: "Dummy description",
+          title: "Consulta",
+          description: "Consulta Nurgo paquete completo",
           picture_url: "http://www.myapp.com/myimage.jpg",
           category_id: "category123",
           quantity: 1,
-          unit_price: 10
+          unit_price: 350
         }
       ],
       back_urls: {
-        failure: "/failure",
-        pending: "/pending",
-        success: "/success"
+        failure: "localhost:8080/profile.html",
+        pending: "localhost:8080/profile.html",
+        success: "localhost:8080/profile.html"
       }
     };
 
