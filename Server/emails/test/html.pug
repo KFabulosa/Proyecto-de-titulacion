@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+  head
+    style
+      include ../includes/style.css
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
+
+  body
+    div#wrapper
+
+      div.one-col
+        h2 ¡Hola!, #{userName}
+        br
+        p Tu cita se ha agendado correctamente. 
+        p Esta es la fecha registrada para tu cita: 
+        h2 #{meetingDate} a las #{meetingHour} horas.
+        p Favor de estar atento a la fecha para no perder la cita. Gracias por agendar.
+        br
+        form(action=urlViewRequest)
+          button(type="submit") Ir al sitio web
+
+      div.division
+
+      div.footer
+        h3.domain Mensaje enviado desde 
+          a(href=clientOrigin) #{clientOrigin}

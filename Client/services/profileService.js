@@ -19,6 +19,13 @@ function signOut() {
   window.location.href = "index.html";
 }
 
+async function payMeeting() {
+  const result = await axios.get(
+    'http://localhost:3000/meeting/payment'
+  );
+  let newTab = window.open(result.data.init_point, '_blank', '');
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 (function (factory) {
