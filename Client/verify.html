@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -78,35 +78,16 @@
                <div class="row">
                   <div class="col-md-6">
                      <div class="contact_box">
-                        <h1 class="book_text">Inicia Sesión</h1>
-                        <form id="loginForm">
-                           <h2>Correo electrónico:</h2> 
-                           <input type="text" placeholder="Ingresa correo electrónico" name="email"><br/>
- 
-                           <h2>Contraseña:</h2> 
-                           <input type="password" placeholder="Ingrese contraseña" name="password"><br/>
+                        <h1 class="book_text">Verificar</h1>
+                        <form id="verifyForm">
+                          <h2>Código:</h2> 
+                          <input type="text" placeholder="Ingresa código" name="code"><br/>
 
-                           <button type="submit" class="send_bt">Iniciar sesión</button><br/>
-                         </form>
-                        <br/><br/>
-                        <h4>O también puedes:</h4>
-                        <div id="g_id_onload"
-                           data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com" data-callback="handleCredentialResponse">
-                        </div>
-                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                        <div id="g_id_onload"
-                           data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com"
-                           data-login_uri="http://localhost:8080/profile"
-                           data-auto_prompt="false">
-                        </div>
-                        <div class="g_id_signin"
-                           data-type="standard"
-                           data-size="large"
-                           data-theme="outline"
-                           data-text="sign_in_with"
-                           data-shape="rectangular"
-                           data-logo_alignment="left">
-                        </div>
+                          <h2>Correo:</h2> 
+                          <input type="text" placeholder="Ingresa correo" name="email"><br/><br/>
+
+                          <button type="submit" class="send_bt">Verificar</button><br/>
+                        </form>
                      </div>
                   </div>
                   <div class="col-md-6">
@@ -149,6 +130,6 @@
    </div>
    <!-- footer section end -->    
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   <script src="./services/loginService.js"></script>
+   <script src="./services/verifyService.js"></script>
 </body>
 </html>

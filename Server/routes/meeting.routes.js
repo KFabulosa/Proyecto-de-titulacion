@@ -7,7 +7,6 @@ const PaymentService = require("../services/Payment.service");
 
 const PaymentInstance = new PaymentController(new PaymentService());
 
-// router.get("/meeting/add" );
 router.post("/meeting/add", createNewMeeting);
 router.get("/meeting", getAllMeetings);
 

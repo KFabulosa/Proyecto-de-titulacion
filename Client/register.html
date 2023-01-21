@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -78,17 +78,27 @@
                <div class="row">
                   <div class="col-md-6">
                      <div class="contact_box">
-                        <h1 class="book_text">Inicia Sesión</h1>
-                        <form id="loginForm">
-                           <h2>Correo electrónico:</h2> 
-                           <input type="text" placeholder="Ingresa correo electrónico" name="email"><br/>
- 
-                           <h2>Contraseña:</h2> 
-                           <input type="password" placeholder="Ingrese contraseña" name="password"><br/>
+                        <h1 class="book_text">Regístrate</h1>
+                        <form id="registerForm">
+                          <h2>Nombre:</h2> 
+                          <input type="text" placeholder="Ingresa nombre" name="name"><br/>
 
-                           <button type="submit" class="send_bt">Iniciar sesión</button><br/>
-                         </form>
-                        <br/><br/>
+                          <h2>Apellido:</h2> 
+                          <input type="text" placeholder="Ingresa apellido" name="lastname"><br/>
+
+                          <h2>Correo electrónico:</h2> 
+                          <input type="text" placeholder="Ingresa correo electrónico" name="email"><br/>
+
+                          <h2>Número de teléfono:</h2> 
+                          <input type="text" placeholder="Número de teléfono" name="phoneNumber"><br/>
+
+                          <h2>Contraseña:</h2> 
+                          <input type="password" placeholder="Ingrese contraseña" name="password"><br/>
+
+                          <h2>Confirmar contraseña:</h2> 
+                          <input type="password" placeholder="Ingrese contraseña" name="confirmPassword"><br/>
+                          <button type="submit" class="send_bt">Registrar</button><br/>
+                        </form>
                         <h4>O también puedes:</h4>
                         <div id="g_id_onload"
                            data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com" data-callback="handleCredentialResponse">
@@ -149,6 +159,6 @@
    </div>
    <!-- footer section end -->    
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   <script src="./services/loginService.js"></script>
+   <script src="./services/registerService.js"></script>
 </body>
 </html>
