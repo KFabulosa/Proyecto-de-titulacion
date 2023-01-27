@@ -37,7 +37,7 @@ function notifyNewMeetingToUser(data) {
     taskName: "Tarea de prueba",
     meetingDate: data.day,
     meetingHour: data.hour,
-    urlViewRequest: "http://localhost:8080",
+    urlViewRequest: "https://nurgo-clinica.netlify.app",
     clientOrigin: "https://nurgo-clinica.netlify.app",
   });
 }
