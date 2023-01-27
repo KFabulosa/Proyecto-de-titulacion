@@ -38,7 +38,7 @@ function notifyNewMeetingToUser(data) {
     meetingDate: data.day,
     meetingHour: data.hour,
     urlViewRequest: "http://localhost:8080",
-    clientOrigin: "https://nurgo.com",
+    clientOrigin: "https://nurgo-clinica.netlify.app",
   });
 }
 

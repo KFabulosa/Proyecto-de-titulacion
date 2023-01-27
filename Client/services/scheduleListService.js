@@ -1,6 +1,6 @@
 window.onload = async function () {
   const result = await axios.get(
-    'http://localhost:3000/meeting')
+    'http://129.153.92.104/meeting')
   mapMeetingsToTableRow(result.data);
 };
 
