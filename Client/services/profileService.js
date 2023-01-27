@@ -21,7 +21,7 @@ function signOut() {
 
 async function payMeeting() {
   const result = await axios.get(
-    'http://localhost:3000/meeting/payment'
+    'http://http://129.153.92.104/meeting/payment'
   );
   let newTab = window.open(result.data.init_point, '_blank', '');
 }
