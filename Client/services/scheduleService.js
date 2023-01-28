@@ -8,70 +8,46 @@
 
     //*    <button>Guardar</button>
     //*</form>
-let dates = [{
-    hours: [13, 14,15, 16, 17, 18, 19],
-    day: '2022-09-22'
-}, {
-    hours: [13, 14,15, 16, 17, 18],
-    day: '2022-10-22'
-}];
+
+const hours = {
+  hour: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  meridiem: ["AM", "PM"],
+}
 
 const dayInput = document.getElementById('day');
 const hoursSelect = document.getElementById('hours');
 const dateForm = document.getElementById('date');
+const meridiemSelect = document.getElementById('meridiem');
 
-dayInput.onchange = (event) => {
-    const value = event.target.value;
-    console.log(value);
+let today = new Date();
+const dateValue = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().substring(0, 10);
 
-    let availableHours = [];
+dayInput.value = dateValue;
 
-    for (let index = 0; index < dates.length; index++) {
-        const currentDate = dates[index];
-        if(currentDate.day === value){
-            availableHours = currentDate.hours
-        }
-    }
-    console.log(availableHours)
+hours.hour.forEach((hour) => {
+  const option = document.createElement('option');
+  option.append(hour);
+  hoursSelect.append(option);
+})
 
-    for (let index = 0; index < availableHours.length; index++) {
-        const hour = availableHours[index];
-        const option = document.createElement('option')
-        option.value = hour
-        option.innerHTML = `${hour}:00 PM`
-        hoursSelect.appendChild(option)
-    }
-}
+hours.meridiem.forEach((meridiem) => {
+  const option = document.createElement('option');
+  option.append(meridiem);
+  meridiemSelect.append(option);
+});
+
+
 
 dateForm.onsubmit = (event)=> {
     event.preventDefault();
-    console.log("Entró al submit");
-    console.log(event);
-    const data = new FormData(dateForm);
-    const day = data.get('day')
-    const hour = parseInt(data.get('hours'))
-    
-    const date = dates.filter((date)=> date.day === day)[0]
-    //
-    console.log("date", date);
-
-    const hours = date.hours.filter(h => h!== hour)
-    console.log("hours", hours);
-    console.log("hour", hour);
-    console.log("day", day);
-    // console.log("date", date);
-
-
-    const newDates = dates.map(d => {
-        if(d.day === day){
-            return { day, hours}
+    let hours = hoursSelect.value;
+    if(meridiemSelect.value === "PM"){
+        if(hoursSelect.value !== "12"){
+          hours = (parseInt(hoursSelect.value) + 12).toString();
+        }else{
+          hours = "0";
         }
-        else {
-            return d
-        }
-    })
-    dates = newDates
-
+    }
     //1. Guardas en variables los datos que necesitas guardar en BDD
     /*
     2. Utilizas axios o ajax para hacer una petición (mediante el Servidor) 
@@ -82,22 +58,24 @@ dateForm.onsubmit = (event)=> {
 
     */
 
-    const token = localStorage.getItem("token");
-    const tokenData = jwt_decode(token);
-    const completeName = tokenData.given_name + " " + tokenData.family_name;
-    const email = tokenData.email;
+    // const token = localStorage.getItem("token");
+    // const tokenData = jwt_decode(token);
+    // const completeName = tokenData.given_name + " " + tokenData.family_name;
+    // const email = tokenData.email;
 
     axios.post(
         'http://129.153.92.104/meeting/add', 
         {
-            hour: hour,
-            day: day,
-            completeName: completeName,
-            email: email,
+            hour: hours,
+            day: dayInput.value,
+            completeName: "Efrén Ruíz Rubio",
+            email: "efren282@outlook.es",
         },
     )
-        .then(res => alert("Petición enviada con éxito."))
-        .catch(err => alert("Ocurrió un error."))
+        .then(() => alert("Petición enviada con éxito."))
+        .catch((err) => {
+          console.log(err);
+          alert("Ocurrió un error." + err)})
 }
 
 
@@ -198,7 +176,7 @@ dateForm.onsubmit = (event)=> {
     InvalidTokenError.prototype = new Error();
     InvalidTokenError.prototype.name = "InvalidTokenError";
   
-    function jwtDecode(token, options) {
+    /* function jwtDecode(token, options) {
       if (typeof token !== "string") {
         throw new InvalidTokenError("Invalid token specified");
       }
@@ -210,14 +188,14 @@ dateForm.onsubmit = (event)=> {
       } catch (e) {
         throw new InvalidTokenError("Invalid token specified: " + e.message);
       }
-    }
+    } */
   
     /*
      * Expose the function on the window object
      */
   
     //use amd or just through the window object.
-    if (window) {
+    /* if (window) {
       if (typeof window.define == "function" && window.define.amd) {
         window.define("jwt_decode", function () {
           return jwtDecode;
@@ -225,6 +203,6 @@ dateForm.onsubmit = (event)=> {
       } else if (window) {
         window.jwt_decode = jwtDecode;
       }
-    }
+    } */
   });
   //# sourceMappingURL=jwt-decode.js.map
