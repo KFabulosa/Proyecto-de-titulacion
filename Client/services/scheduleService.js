@@ -84,7 +84,7 @@ dateForm.onsubmit = (event)=> {
 
     const token = localStorage.getItem("token");
     const tokenData = jwt_decode(token);
-    const completeName = tokenData.given_name + " " + tokenData.family_name;
+    console.log("tokenData", tokenData);
     const email = tokenData.email;
 
     axios.post(
@@ -92,7 +92,6 @@ dateForm.onsubmit = (event)=> {
         {
             hour: hour,
             day: day,
-            completeName: completeName,
             email: email,
         },
     )
