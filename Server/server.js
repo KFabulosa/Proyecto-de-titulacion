@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 
-app.use(cors({origin: '*'}));
+app.use(cors({allowedHeaders: 'Access-Control-Allow-Origin'}));
 app.use(express.json());
 app.set("port", process.env.PORT || 4000);
 
