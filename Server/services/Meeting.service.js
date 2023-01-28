@@ -61,8 +61,8 @@ function notifyNewMeetingToUser(data) {
     userName: data.userName,
     meetingDate: data.meetingDate,
     meetingHour: data.meetingHour,
-    urlViewRequest: "http://localhost:8080",
-    clientOrigin: "https://nurgo.com",
+    urlViewRequest: "https://nurgo-clinica.netlify.app",
+    clientOrigin: "https://nurgo-clinica.netlify.app",
   });
 }
 

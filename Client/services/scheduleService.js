@@ -88,7 +88,7 @@ dateForm.onsubmit = (event)=> {
     const email = tokenData.email;
 
     axios.post(
-        'http://localhost:3000/meeting/add', 
+        'http://129.153.92.104/meeting/add', 
         {
             hour: hour,
             day: day,
