@@ -8,9 +8,10 @@ window.onload = function () {
   const data = jwt_decode(token);
   console.log("data:", data);
 
-  $("#name").text(data.given_name + " " + data.family_name);
+  $("#name").text(data.name + " " + data.lastname);
   const img = document.getElementById("image");
-  img.src = data.picture;
+  // img.src = data.picture;
+  img.src = 'https://img.freepik.com/free-icon/user_318-875902.jpg';
   $("#email").text(data.email);
 };
 

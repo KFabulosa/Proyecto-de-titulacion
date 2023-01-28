@@ -16,7 +16,7 @@ loginForm.onsubmit = async (event) => {
         alert("Logueado correctamente."); 
         // console.log('%cloginService.js line:17 response', 'color: #007acc;', response);
         localStorage.setItem("token", response.data);
-        window.location.href = "schedule.html";
+        window.location.href = "profile.html";
       })
       .catch((err) => {
         console.log('err', err);

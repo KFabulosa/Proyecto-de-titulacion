@@ -11,7 +11,7 @@ const userSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
@@ -24,11 +24,12 @@ const userSchema = new Schema({
   isVerified: {
     type: Boolean,
     default: false,
-  }
-  // meetings: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "meetings",
-  // },
+  },
+  meetings: [{
+    type: Schema.Types.ObjectId,
+    ref: "meetings",
+    required: false,
+  }],
 });
 
 module.exports = model("User", userSchema);
