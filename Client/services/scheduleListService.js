@@ -1,6 +1,6 @@
 window.onload = async function () {
   const result = await axios.get(
-    'http://129.153.92.104/meeting')
+    'https://proyecto-de-titulacion.vercel.app/meeting')
   mapMeetingsToTableRow(result.data);
 };
 

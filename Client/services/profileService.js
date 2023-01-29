@@ -22,7 +22,7 @@ function signOut() {
 
 async function payMeeting() {
   const result = await axios.get(
-    'http://http://129.153.92.104/meeting/payment'
+    'https://proyecto-de-titulacion.vercel.app/meeting/payment'
   );
   let newTab = window.open(result.data.init_point, '_blank', '');
 }
