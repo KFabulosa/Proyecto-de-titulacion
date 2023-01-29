@@ -173,7 +173,7 @@ dateForm.onsubmit = (event)=> {
     InvalidTokenError.prototype = new Error();
     InvalidTokenError.prototype.name = "InvalidTokenError";
   
-    /* function jwtDecode(token, options) {
+    function jwtDecode(token, options) {
       if (typeof token !== "string") {
         throw new InvalidTokenError("Invalid token specified");
       }
@@ -185,14 +185,14 @@ dateForm.onsubmit = (event)=> {
       } catch (e) {
         throw new InvalidTokenError("Invalid token specified: " + e.message);
       }
-    } */
+    }
   
     /*
      * Expose the function on the window object
      */
   
     //use amd or just through the window object.
-    /* if (window) {
+    if (window) {
       if (typeof window.define == "function" && window.define.amd) {
         window.define("jwt_decode", function () {
           return jwtDecode;
@@ -200,6 +200,6 @@ dateForm.onsubmit = (event)=> {
       } else if (window) {
         window.jwt_decode = jwtDecode;
       }
-    } */
+    }
   });
   //# sourceMappingURL=jwt-decode.js.map
