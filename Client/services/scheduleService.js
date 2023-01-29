@@ -62,7 +62,7 @@ dateForm.onsubmit = (event)=> {
     const tokenData = jwt_decode(token);
     const email = tokenData.email;
 
-    axios.post('http://129.153.92.104/meeting/add', {
+    axios.post('https://proyecto-de-titulacion.vercel.app/meeting/add', {
             hour: hours,
             day: dayInput.value,
             email: email,
