@@ -72,7 +72,7 @@ dateForm.onsubmit = (event)=> {
     )
         .then(() => alert("Petición enviada con éxito."))
         .catch((err) => {
-          console.error(err.response.data);
+          console.error(err.response);
           alert("Ocurrió un error.")})
 }
 
