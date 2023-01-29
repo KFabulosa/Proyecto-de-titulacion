@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    style
+      include ../includes/style.css
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
+
+  body
+    div#wrapper
+
+      div.one-col
+        h2 ¡Hola!, #{userName}
+        br
+        p Tu código de verificación es el siguiente: 
+        h3 #{code} 
+        p Ingresa el código y tu correo en el sitio para verificarlo.
+        br
+        form(action=urlViewRequest)
+          button(type="submit") Ir al sitio web
+
+      div.division
+
+      div.footer
+        h3.domain Mensaje enviado desde 
+          a(href=clientOrigin) #{clientOrigin}

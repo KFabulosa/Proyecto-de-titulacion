@@ -78,9 +78,18 @@
                <div class="row">
                   <div class="col-md-6">
                      <div class="contact_box">
-                        <h1 class="book_text">Registrate o Inicia Sesión</h1>
-                        <input type="text" class="Email_text" placeholder="Nombre" name="Name">
-                        <input type="text" class="Email_text" placeholder="Tratamiento de interes" name="Name">
+                        <h1 class="book_text">Inicia Sesión</h1>
+                        <form id="loginForm">
+                           <h2>Correo electrónico:</h2> 
+                           <input type="text" placeholder="Ingresa correo electrónico" name="email"><br/>
+ 
+                           <h2>Contraseña:</h2> 
+                           <input type="password" placeholder="Ingrese contraseña" name="password"><br/>
+
+                           <button type="submit" class="send_bt">Iniciar sesión</button><br/>
+                         </form>
+                        <br/><br/>
+                        <h4>O también puedes:</h4>
                         <div id="g_id_onload"
                            data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com" data-callback="handleCredentialResponse">
                         </div>
@@ -139,5 +148,7 @@
       </div>
    </div>
    <!-- footer section end -->    
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+   <script src="./services/loginService.js"></script>
 </body>
 </html>

@@ -58,18 +58,17 @@ dateForm.onsubmit = (event)=> {
 
     */
 
-    // const token = localStorage.getItem("token");
-    // const tokenData = jwt_decode(token);
-    // const completeName = tokenData.given_name + " " + tokenData.family_name;
-    // const email = tokenData.email;
+    const token = localStorage.getItem("token");
+    const tokenData = jwt_decode(token);
+    console.log("tokenData", tokenData);
+    const email = tokenData.email;
 
     axios.post(
         'http://129.153.92.104/meeting/add', 
         {
-            hour: hours,
-            day: dayInput.value,
-            completeName: "Efrén Ruíz Rubio",
-            email: "efren282@outlook.es",
+            hour: hour,
+            day: day,
+            email: email,
         },
     )
         .then(() => alert("Petición enviada con éxito."))

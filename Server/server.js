@@ -11,3 +11,4 @@ module.exports = app;
 //Routes
 app.use(require("./routes/index.routes"));
 app.use(require("./routes/meeting.routes"));
+app.use(require("./routes/user.routes"));
