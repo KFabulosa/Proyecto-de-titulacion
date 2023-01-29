@@ -62,14 +62,11 @@ dateForm.onsubmit = (event)=> {
     const tokenData = jwt_decode(token);
     const email = tokenData.email;
 
-    axios.post(
-        'http://129.153.92.104/meeting/add', 
-        {
+    axios.post('http://129.153.92.104/meeting/add', {
             hour: hours,
             day: dayInput,
             email: email,
-        },
-    )
+        })
         .then(() => alert("Petición enviada con éxito."))
         .catch((err) => {
           console.error(err);
