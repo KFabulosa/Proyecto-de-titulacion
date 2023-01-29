@@ -60,21 +60,19 @@ dateForm.onsubmit = (event)=> {
 
     const token = localStorage.getItem("token");
     const tokenData = jwt_decode(token);
-    console.log("tokenData", tokenData);
     const email = tokenData.email;
 
     axios.post(
         'http://129.153.92.104/meeting/add', 
         {
-            hour: hour,
-            day: day,
+            hour: hours,
+            day: dayInput,
             email: email,
         },
     )
         .then(() => alert("Petición enviada con éxito."))
-        .catch((err) => {
-          console.log(err);
-          alert("Ocurrió un error." + err)})
+        .catch(() => {
+          alert("Ocurrió un error.")})
 }
 
 
