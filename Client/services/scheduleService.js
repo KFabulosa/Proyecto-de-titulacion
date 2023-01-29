@@ -66,7 +66,7 @@ dateForm.onsubmit = (event)=> {
         'http://129.153.92.104/meeting/add', 
         {
             hour: hours,
-            day: dayInput,
+            day: dayInput.value,
             email: email,
         },
     )
