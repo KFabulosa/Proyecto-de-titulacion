@@ -18,9 +18,9 @@ class PaymentService {
         }
       ],
       back_urls: {
-        failure: "localhost:8080/profile.html",
-        pending: "localhost:8080/profile.html",
-        success: "localhost:8080/profile.html"
+        failure: "https://nurgo-clinica.netlify.app/profile.html",
+        pending: "https://nurgo-clinica.netlify.app/profile.html",
+        success: "https://nurgo-clinica.netlify.app/profile.html"
       }
     };
 

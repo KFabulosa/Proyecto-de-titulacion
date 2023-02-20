@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -80,27 +80,27 @@
                <div class="row">
                   <div class="col-md-6">
                      <div class="contact_box">
-                        <h1 class="book_text">Inicia Sesión</h1>
-                        <form id="loginForm">
-                           <h2>Correo electrónico:</h2> 
-                           <input type="text" placeholder="Ingresa correo electrónico" name="email"><br/>
- 
-                           <h2>Contraseña:</h2> 
-                           <input type="password" placeholder="Ingrese contraseña" name="password"><br/>
+                        <h1 class="book_text">Regístrate</h1>
+                        <form id="registerForm">
+                          <h2>Nombre:</h2> 
+                          <input type="text" placeholder="Ingresa nombre" name="name"><br/>
 
-                           <select class="custom-select">
-                              <option hidden selected>Tratamiento de interés</option>
-                              <option value="item 1">Ortodoncia General</option>
-                              <option value="item 2">Prótesis Dental</option>
-                              <option value="item 3">Diseño 3D</option>
-                              <option value="item 4">Blanqueamientos dentales</option>
-                              <option value="item 5">Diseño de sonrisa</option>
-                              <option value="item 6">Periodoncia</option>
-                           </select>
+                          <h2>Apellido:</h2> 
+                          <input type="text" placeholder="Ingresa apellido" name="lastname"><br/>
 
-                           <button type="submit" class="send_bt">Iniciar sesión</button><br/>
-                         </form>
-                        <br/><br/>
+                          <h2>Correo electrónico:</h2> 
+                          <input type="text" placeholder="Ingresa correo electrónico" name="email"><br/>
+
+                          <h2>Número de teléfono:</h2> 
+                          <input type="text" placeholder="Número de teléfono" name="phoneNumber"><br/>
+
+                          <h2>Contraseña:</h2> 
+                          <input type="password" placeholder="Ingrese contraseña" name="password"><br/>
+
+                          <h2>Confirmar contraseña:</h2> 
+                          <input type="password" placeholder="Ingrese contraseña" name="confirmPassword"><br/>
+                          <button type="submit" class="send_bt">Registrar</button><br/>
+                        </form>
                         <h4>O también puedes:</h4>
                         <div id="g_id_onload"
                            data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com" data-callback="handleCredentialResponse">
@@ -108,7 +108,7 @@
                         <div class="g-signin2" data-onsuccess="onSignIn"></div>
                         <div id="g_id_onload"
                            data-client_id="293041048408-513q8v7b1lk79huq763nntm55gbp7457.apps.googleusercontent.com"
-                           data-login_uri="https://nurgo-clinica.netlify.app/profile"
+                           data-login_uri="http://localhost:8080/profile"
                            data-auto_prompt="false">
                         </div>
                         <div class="g_id_signin"
@@ -121,39 +121,6 @@
                         </div>
                      </div>
                   </div>
-                  <div>
-                  
-                     <h1 class="book_text">¿Tienes dudas? </h1>
-                     <br><br>
-                     <div class="tooltipk">
-                        <br>
-                        <span class="tooltiptextk"></span>
-                      </div>
-                      <br>
-                     <div class="tooltipk">Ortodoncia general
-                        <span class="tooltiptextk">¡Este es tu tratamiento! Si estas en busca de corregir tu sonrisa por estetica y/o salud con tratamientos como: brackets, paladares y alineadores</span>
-                      </div>
-                      <br>
-                      <div class="tooltipk">Protesis dental
-                        <span class="tooltiptextk">¡Este es tu tratamiento! Si tienes piezas dentales faltantes y buscas sus remplazos. </span>
-                      </div>
-                      <br>
-                      <div class="tooltipk">Diseño 3D
-                        <span class="tooltiptextk">¡Este es tu tratamiento! Si buscas mayor presición y estetica en tus tratamientos. </span>
-                      </div>
-                      <br>
-                      <div class="tooltipk">Blanqueamientos dentales
-                        <span class="tooltiptextk">¡Este es tu tratamiento! Si quieres tener un tono más blanco sin desgastar el esmalte de tus dientes. </span>
-                      </div>
-                      <br>
-                      <div class="tooltipk">Diseño de sonrisa 
-                        <span class="tooltiptextk">¡Este es tu tratamiento! Si buscas lucir una sonrisa acorde a tus necesidades y respetando toda la armonia de tus dientes.</span>
-                      </div>
-                      <br>
-                      <div class="tooltipk">Periodoncia 
-                        <span class="tooltiptextk">¡Este es tu tratamiento! Si tu gengivitis se ha agravado y hay pérdida de hueso acompañado de periodos de inflamación gingiva.</span>
-                      </div>
-                  </div>   
                   <div class="col-md-6">
                      <div class="image_1"><img src="images/img-1.png"></div>
                   </div>
@@ -194,6 +161,6 @@
    </div>
    <!-- footer section end -->    
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   <script src="./services/loginService.js"></script>
+   <script src="./services/registerService.js"></script>
 </body>
 </html>

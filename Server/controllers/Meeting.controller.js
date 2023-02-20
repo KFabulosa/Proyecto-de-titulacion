@@ -1,9 +1,8 @@
 const meetingCtrl = {}
-const { createNewMeetingWithUser, getAllMeetings2 } = require("../services/Meeting.service");
+const { createMeeting, getAllMeetings2 } = require("../services/Meeting.service");
 
 meetingCtrl.createNewMeeting = (req, res) => {
-  console.log("holi")
-  createNewMeetingWithUser(req.body);
+  createMeeting(req.body);
 }
 
 meetingCtrl.getAllMeetings = async (req, res) => {
