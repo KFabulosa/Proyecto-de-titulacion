@@ -2,6 +2,7 @@ const meetingCtrl = {}
 const { createNewMeetingWithUser, getAllMeetings2 } = require("../services/Meeting.service");
 
 meetingCtrl.createNewMeeting = (req, res) => {
+  console.log("holi")
   createNewMeetingWithUser(req.body);
 }
 

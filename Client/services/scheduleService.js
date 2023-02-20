@@ -1,57 +1,97 @@
+window.onload = async function () {
+  const result = await axios.get('http://localhost:3000/meeting');
+  disponibleMeetings(result.data);
+}; //petición con axios
 
-//*<body>
-//*   <form action="" id="date">
-//*       <label for="">selecciona tu dia</label>
-//*      <input type="date" id="day" name="day" value="2022-09-22">
- //*       <label for="cars">Selecciona la hora</label>
- //*       <select id="hours" name="hours"></select>
+function disponibleMeetings(meetings){
 
-    //*    <button>Guardar</button>
-    //*</form>
-let dates = [{
-    hours: [13, 14,15, 16, 17, 18, 19],
-    day: '2022-09-22'
-}, {
-    hours: [13, 14,15, 16, 17, 18],
-    day: '2022-10-22'
-}];
+  console.log(meetings)
+const numberOfDaysToAdd = 14; 
 
+function generateDates() {
+  let upDates = []; 
+
+  for (let index = 0; index <= numberOfDaysToAdd; index++) {
+    const numberOfDaysToAdd = index; //pa guardar el 7
+    console.log(numberOfDaysToAdd)
+    const sum = moment().add(numberOfDaysToAdd, 'days')
+    upDates.push({hours: [13, 14,15, 16, 17, 18, 19], day: sum.format('DD')}) //agregar algo al arreglo
+  } 
+  return upDates  
+}
+let dates = generateDates();
 const dayInput = document.getElementById('day');
 const hoursSelect = document.getElementById('hours');
 const dateForm = document.getElementById('date');
+const today = new Date(); //object newDate ya es today
 
-dayInput.onchange = (event) => {
-    const value = event.target.value;
-    console.log(value);
+dayInput.min = today.toLocaleDateString('en-ca'); //establece minimo de today
+dayInput.value = today.toLocaleDateString('en-ca');
+const sum = today.setDate(today.getDate() + numberOfDaysToAdd); //sumando
+const max = new Date(sum) //se le pone a new date lo que se sumo
 
-    let availableHours = [];
+dayInput.max = max.toLocaleDateString('en-ca'); //asigna al input el valor de max
 
-    for (let index = 0; index < dates.length; index++) {
-        const currentDate = dates[index];
-        if(currentDate.day === value){
-            availableHours = currentDate.hours
-        }
+// Muestra las horas disp en un dia
+function fillOptions(date) {
+  let selectedHours = []
+
+  meetings.forEach(meeting =>  {
+
+    const meetingDay = String( moment(meeting.day).date())
+    if(meetingDay === date.day) {
+      selectedHours.push(parseInt(meeting.hour))
     }
-    console.log(availableHours)
+  })
 
-    for (let index = 0; index < availableHours.length; index++) {
-        const hour = availableHours[index];
-        const option = document.createElement('option')
-        option.value = hour
-        option.innerHTML = `${hour}:00 PM`
-        hoursSelect.appendChild(option)
+ 
+
+  date.hours.forEach(hour => {
+    const isSelected = selectedHours.find(selectedHour =>selectedHour === hour)
+
+    if(isSelected) {
+      return;
     }
+    const option = document.createElement('option')
+    option.value = hour
+    option.innerHTML = `${hour}:00 PM`
+    hoursSelect.appendChild(option)
+  });
 }
 
+function deleteOptions() {
+  hoursSelect.innerHTML = '';
+}
+fillOptions(dates[0])
+
+
+
+
+dayInput.onchange = (event) => {
+  deleteOptions()
+    const selectedDay = moment(event.target.value).date();
+
+    const currentDate = dates.find(
+      (date)=> date.day === selectedDay.toString()
+    )
+
+    fillOptions(currentDate)
+}
+console.log(dateForm);
+
 dateForm.onsubmit = (event)=> {
+    console.log("bebitos comediantes")
     event.preventDefault();
     console.log("Entró al submit");
     console.log(event);
     const data = new FormData(dateForm);
     const day = data.get('day')
     const hour = parseInt(data.get('hours'))
-    
-    const date = dates.filter((date)=> date.day === day)[0]
+    const dayString = moment(day).date().toString()
+
+    console.log(day)
+    console.log(dates)
+    const date = dates.find((date)=> date.day === dayString) 
     //
     console.log("date", date);
 
@@ -61,27 +101,16 @@ dateForm.onsubmit = (event)=> {
     console.log("day", day);
     // console.log("date", date);
 
-
+//no se le esta haciendo la peticion al servidor en el onSubmit
     const newDates = dates.map(d => {
-        if(d.day === day){
-            return { day, hours}
+        if(d.day === dayString){
+            return { day:dayString, hours}
         }
         else {
             return d
         }
     })
     dates = newDates
-
-    //1. Guardas en variables los datos que necesitas guardar en BDD
-    /*
-    2. Utilizas axios o ajax para hacer una petición (mediante el Servidor) 
-    a la BDD para guardar los datos.
-    (Para el servidor (API REST) se necesita NodeJs y realizar una conexión
-    a la BDD)
-    3. Exponer un endpoint para guardar los datos (paso 2)
-
-    */
-
     const token = localStorage.getItem("token");
     const tokenData = jwt_decode(token);
     const completeName = tokenData.given_name + " " + tokenData.family_name;
@@ -98,6 +127,20 @@ dateForm.onsubmit = (event)=> {
     )
         .then(res => alert("Petición enviada con éxito."))
         .catch(err => alert("Ocurrió un error."))
+}//fin de funcion 
+
+
+    //1. Guardas en variables los datos que necesitas guardar en BDD
+    /*
+    2. Utilizas axios o ajax para hacer una petición (mediante el Servidor) 
+    a la BDD para guardar los datos.
+    (Para el servidor (API REST) se necesita NodeJs y realizar una conexión
+    a la BDD)
+    3. Exponer un endpoint para guardar los datos (paso 2)
+
+    */
+
+
 }
 
 

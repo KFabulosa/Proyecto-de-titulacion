@@ -20,6 +20,7 @@ function signOut() {
 }
 
 async function payMeeting() {
+  console.log("click");
   const result = await axios.get(
     'http://localhost:3000/meeting/payment'
   );

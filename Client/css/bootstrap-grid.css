@@ -514,6 +514,17 @@ html {
     flex: 0 0 50%;
     max-width: 50%;
   }
+  .col-md-6-profile {
+    justify-items: center;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .citas {
+    background-color: blue;
+    display: block;
+    border: 50px;
+  }
   .col-md-7 {
     -ms-flex: 0 0 58.333333%;
     flex: 0 0 58.333333%;
