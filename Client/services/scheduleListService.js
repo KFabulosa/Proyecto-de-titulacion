@@ -1,6 +1,7 @@
 window.onload = async function () {
-  const result = await axios.get(
-    'https://proyecto-de-titulacion.vercel.app/meeting')
+  const result = await axios.get('http://localhost:3000/meeting');
+  //aqui
+
   mapMeetingsToTableRow(result.data);
 };
 
@@ -22,3 +23,5 @@ function mapMeetingsToTableRow(rows) {
     meetingCode.innerHTML = rowData._id;
   });
 }
+
+//en lugar que de que llene las opciones de la tabla, hace lo de las horas disponibles

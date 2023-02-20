@@ -21,8 +21,9 @@ function signOut() {
 }
 
 async function payMeeting() {
+  console.log("click");
   const result = await axios.get(
-    'https://proyecto-de-titulacion.vercel.app/meeting/payment'
+    'http://localhost:3000/meeting/payment'
   );
   let newTab = window.open(result.data.init_point, '_blank', '');
 }

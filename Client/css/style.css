@@ -984,6 +984,8 @@ input.Enter_text::placeholder {
 .custom-select {
     position: relative;
     font-family: Arial;
+    font-size: 18px;
+    background-color: #ffffff;
   }
   
   .custom-select select {
@@ -1039,4 +1041,31 @@ input.Enter_text::placeholder {
   
   .select-items div:hover, .same-as-selected {
     background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .tooltipk {
+        position: relative;
+        display: flex;
+        align-items: column;
+        justify-content: center;
+        border-bottom: 1px dotted black;
+  }
+  .tooltipk .tooltiptextk {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+  }
+  
+  .tooltipk:hover .tooltiptextk {
+    visibility: visible;
   }
