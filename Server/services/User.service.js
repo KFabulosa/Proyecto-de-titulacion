@@ -19,6 +19,7 @@ async function createNewUser(data) {
       email: data.email,
       phoneNumber: data.phoneNumber,
       password: encryptedPass,
+      role: data.role,
     });
     const response = await userToCreate.save();
 
@@ -97,6 +98,7 @@ async function loginUser(data) {
         lastname: user.lastname,
         email: user.email,
         phoneNumber: user.phoneNumber,
+        role: user.role,
       }
       console.log(payload);
 
@@ -115,5 +117,14 @@ async function loginUser(data) {
     return err.toString();
   }
 }
+ /* const response = await fetch('http://localhost/api-flight/auth', options)
+  const json = await response.json()
+  if (json?.error) {
+    showErrorMessage(`El login ha fallado: ${json.error}`)
+    return false
+  }
+  sessionStorage.setItem('token', json.token)
+  window.location = '/user.html'
+*/
 
 module.exports = { createNewUser, verifyUserCode, loginUser };
