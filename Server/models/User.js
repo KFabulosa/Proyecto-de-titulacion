@@ -25,6 +25,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  role: {
+    type: String,
+    required: true,
+  },
   meetings: [{
     type: Schema.Types.ObjectId,
     ref: "meetings",

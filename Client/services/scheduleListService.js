@@ -1,6 +1,13 @@
 window.onload = async function () {
-  const result = await axios.get('http://localhost:3000/meeting');
-  //aqui
+  const token= localStorage.getItem('token')
+  console.log(token)
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` }
+};
+
+
+  const result = await axios.get('http://localhost:3000/meeting', config);
 
   mapMeetingsToTableRow(result.data);
 };
@@ -23,5 +30,5 @@ function mapMeetingsToTableRow(rows) {
     meetingCode.innerHTML = rowData._id;
   });
 }
-
+//ifblablabl
 //en lugar que de que llene las opciones de la tabla, hace lo de las horas disponibles

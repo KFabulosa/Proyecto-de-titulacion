@@ -15,6 +15,7 @@ registerForm.onsubmit = async (event) => {
         email: data.get("email"),
         phoneNumber: data.get("phoneNumber"),
         password: data.get("password"),
+        role: 'user',
       })
       .then((res) => alert("Usuario creado con éxito. Verificar bandeja de correo."))
       .catch((err) => {

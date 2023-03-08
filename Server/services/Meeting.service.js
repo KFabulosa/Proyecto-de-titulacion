@@ -19,10 +19,11 @@ async function createMeeting(data) {
 
     const response = await newMeeting.save();
     user.meetings.push(newMeeting._id);
-    console.log(user);
+    // console.log(user);
     await user.save();
     let dataToEmail = {
       userName: user.name + " " + user.lastname,
+      email: user.email,
       meetingDate: data.day,
       meetingHour: data.hour.toString(),
     }
@@ -47,7 +48,7 @@ async function getAllMeetings2() {
         as: "usr"
       }
     }]);
-    console.log(allMeetings)
+    // console.log(allMeetings)
     // console.log(allMeetings);
     return allMeetings;
   } catch (err) {
@@ -57,6 +58,7 @@ async function getAllMeetings2() {
 }
 
 function notifyNewMeetingToUser(data) {
+  console.log(data);
   sendMail(data.email, "test", {
     userName: data.userName,
     meetingDate: data.meetingDate,

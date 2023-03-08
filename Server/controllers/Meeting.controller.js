@@ -7,6 +7,7 @@ meetingCtrl.createNewMeeting = (req, res) => {
 
 meetingCtrl.getAllMeetings = async (req, res) => {
   const result = await getAllMeetings2();
+  console.log(req.token)
   return res.send(result);
 }
 
