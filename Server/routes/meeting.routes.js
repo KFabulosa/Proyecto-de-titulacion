@@ -34,7 +34,6 @@ function verifyAdmin(req, res, next){
     console.log('admin validado')
     next();
   }
- 
 else {
   // Forbidden
   res.sendStatus(403);
